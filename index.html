@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSArch - Building Society for Architecture</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Efeito de partículas do mouse -->
+    <div id="particles-js"></div>
+    
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">
+                <span>B</span>
+                <span>S</span>
+                <span>A</span>
+                <span>r</span>
+                <span>c</span>
+                <span>h</span>
+            </div>
+            <div class="preloader-subtitle">Arquitetura e Design</div>
+            <div class="preloader-progress">
+                <div class="preloader-progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <a href="#" class="logo">BSArch</a>
+            <div class="header-right">
+                <button id="services-toggle" class="services-toggle">
+                    <span>Services</span>
+                </button>
+                <button id="menu-toggle" class="menu-toggle">
+                    <span></span>
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Panel -->
+    <div id="services-panel" class="services-panel">
+        <div class="services-header">
+            <h2>Services</h2>
+            <button id="close-services" class="close-button">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="services-carousel">
+            <div class="carousel-track">
+                <div class="carousel-slide">
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Architectural Design">
+                            <div class="service-overlay">
+                                <h3>Architectural Design</h3>
+                                <p>Design arquitetônico inovador para residências e edifícios comerciais</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Interior Design">
+                            <div class="service-overlay">
+                                <h3>Interior Design</h3>
+                                <p>Criação de espaços interiores funcionais e esteticamente impressionantes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Planning Applications">
+                            <div class="service-overlay">
+                                <h3>Planning Applications</h3>
+                                <p>Preparação e submissão de pedidos de planeamento urbano</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1515574838751-8c0911f48b24?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Conservation & Heritage Design">
+                            <div class="service-overlay">
+                                <h3>Conservation & Heritage Design</h3>
+                                <p>Preservação e restauro de edifícios históricos e patrimoniais</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Create & Construct">
+                            <div class="service-overlay">
+                                <h3>Create & Construct</h3>
+                                <p>Serviços completos de criação e construção de projetos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-controls">
+            <button class="carousel-prev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="carousel-indicators"></div>
+            <button class="carousel-next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Menu -->
+    <nav id="main-menu" class="main-menu">
+        <div class="menu-header">
+            <button id="close-menu" class="close-button">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul>
+            <li>
+                <a href="#">
+                    <span>Portfolio</span> 
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                <ul class="submenu">
+                    <li><a href="#">Residencial</a></li>
+                    <li><a href="#">Comercial</a></li>
+                    <li><a href="#">Institucional</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <span>About</span> 
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                <ul class="submenu">
+                    <li><a href="#">História</a></li>
+                    <li><a href="#">Equipa</a></li>
+                    <li><a href="#">Prémios</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <span>Contact</span> 
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                <ul class="submenu">
+                    <li><a href="#">Escritório</a></li>
+                    <li><a href="#">Trabalhe connosco</a></li>
+                    <li><a href="#">Orçamentos</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="menu-footer">
+            <p>LONDON DESIGN STUDIO</p>
+            <p>ARCHITECTURAL DESIGN RESIDENTIAL</p>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Zoom Effect -->
+    <section class="hero">
+        <div class="construction-lines">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80" alt="BSArch Architecture">
+        </div>
+        <div class="hero-content">
+            <div class="container">
+                <h1 class="hero-title">Building Society for Architecture</h1>
+                <p class="hero-subtitle">Convergência entre design, arquitectura e pensamento estratégico</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Matters Section -->
+    <section class="design-matters">
+        <div class="container">
+            <div class="design-matters-content">
+                <h2>DESIGN MATTERS</h2>
+                <p>Management team award winning architectural and interior design studio.</p>
+                <div class="awards">
+                    <div class="award-item">
+                        <h3>DESIGN & ADVANCED AWARDS</h3>
+                    </div>
+                    <div class="award-item">
+                        <h3>AWARDS</h3>
+                    </div>
+                    <div class="award-item">
+                        <h3>WORKER 2018</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <h2>Sobre Nós</h2>
+            <div class="about-content">
+                <p class="about-text">Building Society for Architecture é mais do que um atelier; é um espaço de convergência entre design, arquitectura e pensamento estratégico. Fundado em 2017, em Luanda, pelo arquitecto Belarmino Santos, o estúdio nasceu com a ambição de expandir os limites da prática arquitectónica em Angola, abraçando projectos de múltiplas escalas e contextos.</p>
+                <p class="more-text">Hoje, a BS Arquitectura projeta não apenas edifícios, mas também experiências — físicas e digitais. O website corporativo que agora se planeia é um prolongamento natural dessa visão: um espaço virtual onde ideias ganham forma, onde a criatividade se encontra com a técnica, e onde a presença digital se torna uma extensão da nossa identidade arquitectónica.</p>
+                <button class="read-more-btn">Ler mais</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects">
+        <div class="container">
+            <h2>Projetos em Destaque</h2>
+            <div class="projects-grid">
+                <div class="project-item">
+                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Projeto Residencial">
+                    <div class="project-info">
+                        <h3>Residencial Lumbo</h3>
+                        <p>Design contemporâneo com influências locais</p>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Projeto Comercial">
+                    <div class="project-info">
+                        <h3>Centro Comercial Baía</h3>
+                        <p>Espaços comerciais integrados com a natureza</p>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Projeto Urbano">
+                    <div class="project-info">
+                        <h3>Plano Diretor Urbano</h3>
+                        <p>Reestruturação do centro da cidade</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 BSArch - Building Society for Architecture. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
