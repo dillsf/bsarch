@@ -965,3 +965,190 @@ footer {
         width: 60px;
     }
 }
+
+
+/* Efeito de Construção */
+.construction-effect {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    z-index: 4;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.construction-crane {
+    position: absolute;
+    right: 10%;
+    bottom: 20px;
+    width: 80px;
+    height: 180px;
+    z-index: 5;
+}
+
+.crane-base {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 10px;
+    background: #fff;
+    border-radius: 2px;
+}
+
+.crane-tower {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 120px;
+    background: #fff;
+}
+
+.crane-arm {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    width: 80px;
+    height: 4px;
+    background: #fff;
+    transform-origin: left center;
+    animation: craneArmMove 8s infinite ease-in-out;
+}
+
+.crane-cable {
+    position: absolute;
+    top: 32px;
+    left: 90%;
+    width: 2px;
+    height: 80px;
+    background: #fff;
+    transform-origin: top center;
+    animation: craneCableMove 8s infinite ease-in-out;
+}
+
+.crane-hook {
+    position: absolute;
+    bottom: -48px;
+    left: 90%;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+.construction-elements {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.construction-beam {
+    position: absolute;
+    bottom: 0;
+    width: 100px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    animation: beamMove 15s infinite linear;
+}
+
+.construction-beam:nth-child(1) {
+    left: -100px;
+    animation-delay: 0s;
+}
+
+.construction-beam:nth-child(2) {
+    left: -100px;
+    animation-delay: 5s;
+}
+
+.construction-beam:nth-child(3) {
+    left: -100px;
+    animation-delay: 10s;
+}
+
+.construction-worker {
+    position: absolute;
+    bottom: 20px;
+    left: 20%;
+    width: 15px;
+    height: 20px;
+    background: #fff;
+    border-radius: 2px;
+    animation: workerMove 12s infinite alternate ease-in-out;
+}
+
+.construction-grid {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    animation: gridMove 20s infinite linear;
+}
+
+/* Animações */
+@keyframes craneArmMove {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+@keyframes craneCableMove {
+    0%, 100% { transform: translateX(-50%) rotate(-5deg); }
+    50% { transform: translateX(-50%) rotate(5deg); }
+}
+
+@keyframes beamMove {
+    0% { transform: translateX(0) rotate(0deg); }
+    100% { transform: translateX(calc(100vw + 100px)) rotate(360deg); }
+}
+
+@keyframes workerMove {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(50px); }
+}
+
+@keyframes gridMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 20px 20px; }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .construction-crane {
+        right: 5%;
+        width: 60px;
+        height: 120px;
+    }
+    
+    .crane-tower {
+        height: 80px;
+    }
+    
+    .crane-arm {
+        width: 60px;
+        top: 20px;
+    }
+    
+    .construction-beam {
+        width: 80px;
+        height: 8px;
+    }
+    
+    .construction-worker {
+        left: 10%;
+        width: 12px;
+        height: 16px;
+    }
+}

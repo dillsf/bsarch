@@ -279,3 +279,61 @@ document.addEventListener('DOMContentLoaded', function() {
     initSubmenus();
     window.addEventListener('resize', initSubmenus);
 });
+
+// Inicializar efeitos de construção
+function initConstructionEffects() {
+    // Criar elementos de construção dinâmicos
+    createFloatingElements();
+    
+    // Iniciar animações
+    startConstructionAnimations();
+}
+
+function createFloatingElements() {
+    const constructionElements = document.querySelector('.construction-elements');
+    
+    // Adicionar mais elementos flutuantes
+    for (let i = 0; i < 5; i++) {
+        const element = document.createElement('div');
+        element.classList.add('construction-element');
+        element.style.left = `${Math.random() * 100}%`;
+        element.style.bottom = `${20 + Math.random() * 30}%`;
+        element.style.animationDelay = `${Math.random() * 5}s`;
+        element.style.width = `${10 + Math.random() * 30}px`;
+        element.style.height = `${2 + Math.random() * 4}px`;
+        element.style.backgroundColor = 'rgba(255, 255, 255, 0.6)';
+        element.style.position = 'absolute';
+        element.style.animation = `floatElement ${10 + Math.random() * 10}s infinite ease-in-out`;
+        
+        constructionElements.appendChild(element);
+    }
+}
+
+function startConstructionAnimations() {
+    // Adicionar estilos para animação flutuante
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes floatElement {
+            0%, 100% { 
+                transform: translateY(0) rotate(0deg); 
+                opacity: 0.6;
+            }
+            25% { 
+                transform: translateY(-10px) rotate(90deg); 
+                opacity: 0.8;
+            }
+            50% { 
+                transform: translateY(-20px) rotate(180deg); 
+                opacity: 1;
+            }
+            75% { 
+                transform: translateY(-10px) rotate(270deg); 
+                opacity: 0.8;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// Chamar a função de inicialização
+initConstructionEffects();
