@@ -126,51 +126,66 @@
 
     <!-- Main Menu -->
     <nav id="main-menu" class="main-menu">
-        <div class="menu-header">
-            <button id="close-menu" class="close-button">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <ul>
-            <li>
-                <a href="#">
-                    <span>Portfolio</span> 
-                    <i class="fas fa-chevron-right"></i>
-                </a>
-                <ul class="submenu">
-                    <li><a href="#">Residencial</a></li>
-                    <li><a href="#">Comercial</a></li>
-                    <li><a href="#">Institucional</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">
-                    <span>About</span> 
-                    <i class="fas fa-chevron-right"></i>
-                </a>
-                <ul class="submenu">
-                    <li><a href="#">História</a></li>
-                    <li><a href="#">Equipa</a></li>
-                    <li><a href="#">Prémios</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">
-                    <span>Contact</span> 
-                    <i class="fas fa-chevron-right"></i>
-                </a>
-                <ul class="submenu">
-                    <li><a href="#">Escritório</a></li>
-                    <li><a href="#">Trabalhe connosco</a></li>
-                    <li><a href="#">Orçamentos</a></li>
-                </ul>
-            </li>
-        </ul>
-        <div class="menu-footer">
-            <p>VISIONTEC - AFERNANDES</p>
-            <p>ARCHITECTURAL DESIGN RESIDENTIAL</p>
-        </div>
-    </nav>
+    <div class="menu-header">
+        <button id="close-menu" class="close-button">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <ul>
+        <li>
+            <a href="#">
+                <span>Services</span>
+                <i class="fas fa-chevron-down"></i>
+            </a>
+            <ul class="submenu">
+                <li><a href="#">Architectural Design</a></li>
+                <li><a href="#">Planning Applications</a></li>
+                <li><a href="#">Interior Design</a></li>
+                <li><a href="#">Conservation & Heritage Design</a></li>
+                <li><a href="#">Create & Construct</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">
+                <span>Portfolio</span>
+                <i class="fas fa-chevron-down"></i>
+            </a>
+            <ul class="submenu">
+                <li><a href="#">Residential</a></li>
+                <li><a href="#">Commercial</a></li>
+                <li><a href="#">Institutional</a></li>
+                <li><a href="#">Urban Planning</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">
+                <span>About</span>
+                <i class="fas fa-chevron-down"></i>
+            </a>
+            <ul class="submenu">
+                <li><a href="#">Our Story</a></li>
+                <li><a href="#">Team</a></li>
+                <li><a href="#">Awards</a></li>
+                <li><a href="#">Philosophy</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">
+                <span>Contact</span>
+                <i class="fas fa-chevron-down"></i>
+            </a>
+            <ul class="submenu">
+                <li><a href="#">Office</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Consultation</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div class="menu-footer">
+        <p>VISIONTEC - AFERNANDES</p>
+        <p>ARCHITECTURAL DESIGN RESIDENTIAL</p>
+    </div>
+</nav>
 
     <!-- Hero Section with Slideshow -->
     <section class="hero">
@@ -261,35 +276,65 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section class="projects">
-        <div class="container">
-            <h2>Projetos em Destaque</h2>
-            <div class="projects-grid">
-                <div class="project-item">
-                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Projeto Residencial">
-                    <div class="project-info">
-                        <h3>Residencial Lumbo</h3>
-                        <p>Design contemporâneo com influências locais</p>
-                    </div>
+    <section class="construction-parallax">
+    <div class="parallax-container">
+        <div class="parallax-layer" data-depth="0.1">
+            <div class="grid-lines"></div>
+        </div>
+        <div class="parallax-layer" data-depth="0.2">
+            <div class="blueprint-element blueprint-1"></div>
+            <div class="blueprint-element blueprint-2"></div>
+            <div class="blueprint-element blueprint-3"></div>
+        </div>
+        <div class="parallax-layer" data-depth="0.3">
+            <div class="arch-element arch-1"></div>
+            <div class="arch-element arch-2"></div>
+        </div>
+        <div class="parallax-content">
+            <h2>Design Estrutural</h2>
+            <p>Precisão e inovação em cada projeto</p>
+        </div>
+    </div>
+</section>
+
+  <!-- Substituir a seção de projetos atual por esta -->
+<section class="projects">
+    <div class="container">
+        <h2>Projetos em Destaque</h2>
+        <div class="projects-grid">
+            <div class="project-item">
+                <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Projeto Residencial">
+                <div class="project-info">
+                    <h3>Residencial Lumbo</h3>
+                    <p>Design contemporâneo com influências locais, integrando perfeitamente o interior com a natureza circundante.</p>
+                    <a href="#" class="project-link">
+                        Ver projeto <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                <div class="project-item">
-                    <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Projeto Comercial">
-                    <div class="project-info">
-                        <h3>Centro Comercial Baía</h3>
-                        <p>Espaços comerciais integrados com a natureza</p>
-                    </div>
+            </div>
+            <div class="project-item">
+                <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Projeto Comercial">
+                <div class="project-info">
+                    <h3>Centro Comercial Baía</h3>
+                    <p>Espaços comerciais integrados com a natureza, criando uma experiência única para visitantes e lojistas.</p>
+                    <a href="#" class="project-link">
+                        Ver projeto <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                <div class="project-item">
-                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Projeto Urbano">
-                    <div class="project-info">
-                        <h3>Plano Diretor Urbano</h3>
-                        <p>Reestruturação do centro da cidade</p>
-                    </div>
+            </div>
+            <div class="project-item">
+                <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Projeto Urbano">
+                <div class="project-info">
+                    <h3>Plano Diretor Urbano</h3>
+                    <p>Reestruturação do centro da cidade com foco em sustentabilidade e melhoria da qualidade de vida urbana.</p>
+                    <a href="#" class="project-link">
+                        Ver projeto <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <footer>
         <div class="container">

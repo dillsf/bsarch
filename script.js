@@ -337,3 +337,100 @@ function startConstructionAnimations() {
 
 // Chamar a função de inicialização
 initConstructionEffects();
+
+
+// Efeito Paralaxe
+function initParallax() {
+    const parallaxLayers = document.querySelectorAll('.parallax-layer');
+    
+    window.addEventListener('scroll', function() {
+        const scrollPosition = window.pageYOffset;
+        const parallaxContainer = document.querySelector('.construction-parallax');
+        const containerTop = parallaxContainer.offsetTop;
+        const containerHeight = parallaxContainer.offsetHeight;
+        
+        // Verificar se o elemento está na viewport
+        if (scrollPosition > containerTop - window.innerHeight && 
+            scrollPosition < containerTop + containerHeight) {
+            
+            const relativeScroll = scrollPosition - containerTop;
+            
+            parallaxLayers.forEach(layer => {
+                const depth = parseFloat(layer.getAttribute('data-depth'));
+                const movement = -(relativeScroll * depth);
+                layer.style.transform = `translateY(${movement}px)`;
+            });
+        }
+    });
+}
+
+// Chamar a função
+initParallax();
+
+
+// Funcionalidade para submenus em mobile
+function initMobileSubmenus() {
+    if (window.innerWidth <= 768) {
+        const menuItems = document.querySelectorAll('.main-menu > ul > li');
+        
+        menuItems.forEach(item => {
+            const link = item.querySelector('a');
+            const submenu = item.querySelector('.submenu');
+            
+            link.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    
+                    // Fechar outros submenus
+                    document.querySelectorAll('.main-menu > ul > li').forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.querySelector('.submenu').style.maxHeight = '0px';
+                            otherItem.querySelector('.fa-chevron-down').style.transform = 'rotate(0deg)';
+                        }
+                    });
+                    
+                    // Alternar submenu atual
+                    if (submenu.style.maxHeight && submenu.style.maxHeight !== '0px') {
+                        submenu.style.maxHeight = '0px';
+                        this.querySelector('.fa-chevron-down').style.transform = 'rotate(0deg)';
+                    } else {
+                        submenu.style.maxHeight = submenu.scrollHeight + 'px';
+                        this.querySelector('.fa-chevron-down').style.transform = 'rotate(180deg)';
+                    }
+                }
+            });
+        });
+    }
+}
+
+// Atualizar a função initSubmenus para usar esta nova implementação
+function initSubmenus() {
+    initMobileSubmenus();
+    
+    // Para desktop - hover
+    if (window.innerWidth > 768) {
+        const menuItems = document.querySelectorAll('.main-menu > ul > li');
+        
+        menuItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                const submenu = this.querySelector('.submenu');
+                const icon = this.querySelector('.fa-chevron-down');
+                
+                submenu.style.maxHeight = submenu.scrollHeight + 'px';
+                icon.style.transform = 'rotate(180deg)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                const submenu = this.querySelector('.submenu');
+                const icon = this.querySelector('.fa-chevron-down');
+                
+                submenu.style.maxHeight = '0px';
+                icon.style.transform = 'rotate(0deg)';
+            });
+        });
+    }
+}
+
+// Chamar a função no carregamento e no redimensionamento
+initSubmenus();
+window.addEventListener('resize', initSubmenus);
