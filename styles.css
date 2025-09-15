@@ -18,14 +18,6 @@ body {
     margin: 0 auto;
 }
 
-/* Particles.js */
-#particles-js {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
-
 /* Preloader */
 .preloader {
     position: fixed;
@@ -118,10 +110,26 @@ header {
     width: 100%;
     padding: 1.5rem 0;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    transition: background 0.3s ease;
+    transition: all 0.5s ease;
+}
+
+header.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header.scrolled .logo,
+header.scrolled .services-toggle,
+header.scrolled .menu-toggle {
+    color: #000;
+}
+
+header.scrolled .hamburger span {
+    background: #000;
 }
 
 header .container {
@@ -134,9 +142,10 @@ header .container {
     font-size: 1.5rem;
     font-weight: 700;
     text-decoration: none;
-    color: #000;
+    color: #fff;
     position: relative;
     z-index: 1001;
+    transition: color 0.3s ease;
 }
 
 .header-right {
@@ -155,9 +164,10 @@ header .container {
     padding: 0.5rem;
     display: flex;
     align-items: center;
-    color: #000;
+    color: #fff;
     font-size: 0.9rem;
     font-weight: 500;
+    transition: color 0.3s ease;
 }
 
 .menu-toggle {
@@ -165,7 +175,7 @@ header .container {
     align-items: center;
 }
 
-.menu-toggle span {
+.menu-text {
     margin-right: 0.8rem;
 }
 
@@ -181,7 +191,7 @@ header .container {
 .hamburger span {
     display: block;
     height: 2px;
-    background: #000;
+    background: #fff;
     margin: 2px 0;
     transition: all 0.3s ease;
     width: 100%;
@@ -206,7 +216,7 @@ header .container {
     right: -100%;
     width: 100%;
     height: 100vh;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(0, 0, 0, 0.9);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     z-index: 998;
@@ -215,6 +225,7 @@ header .container {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    color: #fff;
 }
 
 .services-panel.active {
@@ -227,7 +238,7 @@ header .container {
     align-items: center;
     margin-bottom: 2rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .services-header h2 {
@@ -240,7 +251,7 @@ header .container {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: #000;
+    color: #fff;
 }
 
 .services-carousel {
@@ -262,6 +273,7 @@ header .container {
     justify-content: center;
     align-items: center;
     padding: 1rem;
+    min-width: 100%;
 }
 
 .service-item {
@@ -276,7 +288,7 @@ header .container {
     padding-bottom: 75%;
     overflow: hidden;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .service-image img {
@@ -299,14 +311,10 @@ header .container {
     left: 0;
     width: 100%;
     padding: 2rem;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
     color: #fff;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.service-item:hover .service-overlay {
     opacity: 1;
+    transition: opacity 0.3s ease;
 }
 
 .service-overlay h3 {
@@ -327,7 +335,7 @@ header .container {
 }
 
 .carousel-prev, .carousel-next {
-    background: #000;
+    background: rgba(255, 255, 255, 0.2);
     color: #fff;
     border: none;
     width: 40px;
@@ -342,7 +350,7 @@ header .container {
 }
 
 .carousel-prev:hover, .carousel-next:hover {
-    background: #333;
+    background: rgba(255, 255, 255, 0.4);
 }
 
 .carousel-indicators {
@@ -354,13 +362,13 @@ header .container {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: #ddd;
+    background: rgba(255, 255, 255, 0.3);
     cursor: pointer;
     transition: background 0.3s ease;
 }
 
 .carousel-indicator.active {
-    background: #000;
+    background: #fff;
 }
 
 /* Main Menu */
@@ -526,7 +534,7 @@ header .container {
     }
 }
 
-.hero-image {
+.hero-slideshow {
     position: absolute;
     top: 0;
     left: 0;
@@ -534,7 +542,21 @@ header .container {
     height: 100%;
 }
 
-.hero-image img {
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -563,19 +585,59 @@ header .container {
     background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
 }
 
+.hero-minimal {
+    width: 100%;
+}
+
+.hero-line {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.5);
+    width: 100px;
+    margin: 1.5rem 0;
+}
+
 .hero-title {
     font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
     line-height: 1.2;
+    letter-spacing: 5px;
+    text-transform: uppercase;
 }
 
 .hero-subtitle {
-    font-size: 1.3rem;
-    font-weight: 400;
-    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    font-weight: 300;
     opacity: 0.9;
-    max-width: 600px;
+    letter-spacing: 2px;
+}
+
+.slide-controls {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 5;
+    display: flex;
+    gap: 1rem;
+}
+
+.slide-prev, .slide-next {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.slide-prev:hover, .slide-next:hover {
+    background: rgba(255, 255, 255, 0.4);
 }
 
 /* Design Matters Section */
@@ -812,11 +874,12 @@ footer {
 
 @media (max-width: 768px) {
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        letter-spacing: 3px;
     }
     
     .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
     
     .design-matters h2 {
@@ -839,22 +902,27 @@ footer {
         gap: 2rem;
     }
     
-    .menu-toggle span {
+    .menu-text {
         display: none;
     }
     
     .services-toggle span {
         display: none;
     }
+    
+    .slide-controls {
+        bottom: 1rem;
+        right: 1rem;
+    }
 }
 
 @media (max-width: 576px) {
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     
     .hero-subtitle {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
     
     .design-matters h2 {
@@ -891,5 +959,9 @@ footer {
     
     .hero-content {
         background: rgba(0, 0, 0, 0.6);
+    }
+    
+    .hero-line {
+        width: 60px;
     }
 }

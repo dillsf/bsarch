@@ -14,101 +14,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const nextBtn = document.querySelector('.carousel-next');
     const preloader = document.getElementById('preloader');
     const progressBar = document.querySelector('.preloader-progress-bar');
+    const header = document.querySelector('header');
+    const heroSlides = document.querySelectorAll('.slide');
+    const slidePrev = document.querySelector('.slide-prev');
+    const slideNext = document.querySelector('.slide-next');
     
-    // Variáveis para controle do carrossel
+    // Variáveis para controle
     let currentSlide = 0;
+    let currentHeroSlide = 0;
     const slideCount = carouselSlides.length;
+    const heroSlideCount = heroSlides.length;
     let carouselIndicators;
-    
-    // Inicializar partículas
-    particlesJS('particles-js', {
-        particles: {
-            number: {
-                value: 30,
-                density: {
-                    enable: true,
-                    value_area: 800
-                }
-            },
-            color: {
-                value: "#000000"
-            },
-            shape: {
-                type: "circle",
-                stroke: {
-                    width: 0,
-                    color: "#000000"
-                }
-            },
-            opacity: {
-                value: 0.5,
-                random: true,
-                anim: {
-                    enable: true,
-                    speed: 1,
-                    opacity_min: 0.1,
-                    sync: false
-                }
-            },
-            size: {
-                value: 3,
-                random: true,
-                anim: {
-                    enable: true,
-                    speed: 2,
-                    size_min: 0.1,
-                    sync: false
-                }
-            },
-            line_linked: {
-                enable: true,
-                distance: 150,
-                color: "#000000",
-                opacity: 0.4,
-                width: 1
-            },
-            move: {
-                enable: true,
-                speed: 1,
-                direction: "none",
-                random: true,
-                straight: false,
-                out_mode: "out",
-                bounce: false,
-                attract: {
-                    enable: false,
-                    rotateX: 600,
-                    rotateY: 1200
-                }
-            }
-        },
-        interactivity: {
-            detect_on: "canvas",
-            events: {
-                onhover: {
-                    enable: true,
-                    mode: "grab"
-                },
-                onclick: {
-                    enable: true,
-                    mode: "push"
-                },
-                resize: true
-            },
-            modes: {
-                grab: {
-                    distance: 140,
-                    line_linked: {
-                        opacity: 1
-                    }
-                },
-                push: {
-                    particles_nb: 4
-                }
-            }
-        },
-        retina_detect: true
-    });
+    let heroSlideInterval;
     
     // Preloader
     function simulateLoading() {
@@ -118,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 clearInterval(interval);
                 setTimeout(() => {
                     preloader.classList.add('loaded');
+                    startHeroSlideshow();
                 }, 500);
             } else {
                 width += 2;
@@ -127,6 +45,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     simulateLoading();
+    
+    // Header scroll effect
+    function updateHeaderBackground() {
+        if (window.scrollY > window.innerHeight * 0.5) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    }
+    
+    window.addEventListener('scroll', updateHeaderBackground);
+    updateHeaderBackground();
     
     // Alternar menu principal
     function toggleMenu() {
@@ -193,6 +123,11 @@ document.addEventListener('DOMContentLoaded', function() {
     function setCarouselTrackWidth() {
         const trackWidth = slideCount * 100;
         carouselTrack.style.width = `${trackWidth}%`;
+        
+        // Configurar largura de cada slide
+        carouselSlides.forEach(slide => {
+            slide.style.width = `${100 / slideCount}%`;
+        });
     }
     
     // Mover carrossel para um slide específico
@@ -229,6 +164,37 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Inicializar carrossel
     setCarouselTrackWidth();
+    
+    // Hero slideshow
+    function startHeroSlideshow() {
+        heroSlideInterval = setInterval(() => {
+            moveToHeroSlide(currentHeroSlide + 1);
+        }, 5000);
+    }
+    
+    function moveToHeroSlide(slideIndex) {
+        if (slideIndex < 0) {
+            slideIndex = heroSlideCount - 1;
+        } else if (slideIndex >= heroSlideCount) {
+            slideIndex = 0;
+        }
+        
+        heroSlides.forEach(slide => slide.classList.remove('active'));
+        heroSlides[slideIndex].classList.add('active');
+        currentHeroSlide = slideIndex;
+    }
+    
+    slidePrev.addEventListener('click', function() {
+        clearInterval(heroSlideInterval);
+        moveToHeroSlide(currentHeroSlide - 1);
+        startHeroSlideshow();
+    });
+    
+    slideNext.addEventListener('click', function() {
+        clearInterval(heroSlideInterval);
+        moveToHeroSlide(currentHeroSlide + 1);
+        startHeroSlideshow();
+    });
     
     // Fechar menus ao clicar fora deles
     document.addEventListener('click', function(event) {
@@ -275,22 +241,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     initScrollAnimations();
-    
-    // Header transparente no hero
-    function updateHeaderBackground() {
-        const header = document.querySelector('header');
-        const heroSection = document.querySelector('.hero');
-        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-        
-        if (window.scrollY > heroBottom - 100) {
-            header.style.background = 'rgba(255, 255, 255, 0.95)';
-        } else {
-            header.style.background = 'rgba(255, 255, 255, 0.8)';
-        }
-    }
-    
-    window.addEventListener('scroll', updateHeaderBackground);
-    updateHeaderBackground();
     
     // Submenus para mobile
     function initSubmenus() {

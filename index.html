@@ -9,9 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Efeito de partículas do mouse -->
-    <div id="particles-js"></div>
-    
     <!-- Preloader -->
     <div id="preloader" class="preloader">
         <div class="preloader-content">
@@ -38,7 +35,7 @@
                     <span>Services</span>
                 </button>
                 <button id="menu-toggle" class="menu-toggle">
-                    <span></span>
+                    <span class="menu-text">Menu</span>
                     <div class="hamburger">
                         <span></span>
                         <span></span>
@@ -169,26 +166,46 @@
             </li>
         </ul>
         <div class="menu-footer">
-            <p>AFERNANDES - VISIONTEC</p>
-            <p>ARCHITECTURAL & DESIGN RESIDENTIAL</p>
+            <p>LONDON DESIGN STUDIO</p>
+            <p>ARCHITECTURAL DESIGN RESIDENTIAL</p>
         </div>
     </nav>
 
-    <!-- Hero Section with Zoom Effect -->
+    <!-- Hero Section with Slideshow -->
     <section class="hero">
         <div class="construction-lines">
             <div class="line"></div>
             <div class="line"></div>
             <div class="line"></div>
         </div>
-        <div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80" alt="BSArch Architecture">
+        <div class="hero-slideshow">
+            <div class="slide active">
+                <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80" alt="BSArch Architecture">
+            </div>
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="BSArch Design">
+            </div>
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="BSArch Projects">
+            </div>
         </div>
         <div class="hero-content">
             <div class="container">
-                <h1 class="hero-title">Building Society for Architecture</h1>
-                <p class="hero-subtitle">Convergência entre design, arquitectura e pensamento estratégico</p>
+                <div class="hero-minimal">
+                    <div class="hero-line"></div>
+                    <h1 class="hero-title">Building Society</h1>
+                    <p class="hero-subtitle">Arquitectura & Design</p>
+                    <div class="hero-line"></div>
+                </div>
             </div>
+        </div>
+        <div class="slide-controls">
+            <button class="slide-prev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="slide-next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
         </div>
     </section>
 
@@ -260,7 +277,6 @@
             <p>&copy; 2025 BSArch - Building Society for Architecture. Todos os direitos reservados.</p>
         </div>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
 </body>
